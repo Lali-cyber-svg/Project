@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Traffic Volume Estimation</title>
+</head>
+<body style="background-color: lightgray; text-align: center;">
+    <h1>🚗 Traffic Volume Estimation</h1>
+
+    <form action="{{ url_for('predict') }}" method="POST">
+        <label for="holiday">Holiday:</label>
+        <select id="holiday" name="holiday">
+            <option value="7">None</option>
+            <option value="1">Columbus Day</option>
+            <option value="18">Veterans Day</option>
+            <option value="9">Thanksgiving Day</option>
+            <option value="10">Christmas Day</option>
+            <option value="6">New Year's Day</option>
+        </select>
+        <br><br>
+
+        <label>Temperature (Celsius or Kelvin):</label>
+        <input type="number" step="any" name="temp" placeholder="Enter Temperature" required="required" />
+        <br><br>
+
+        <label>Rain:</label>
+        <input type="number" min="0" max="2" name="rain" placeholder="Rainfall" required />
+        <br><br>
+
+        <label>Snow:</label>
+        <input type="number" min="0" max="1" name="snow" placeholder="Snow" required />
+        <br><br>
+
+        <label for="weather">Weather:</label>
+        <select id="weather" name="weather">
+            <option value="1">Clouds</option>
+            <option value="8">Clear</option>
+            <option value="6">Rain</option>
+            <option value="2">Drizzle</option>
+            <option value="5">Mist</option>
+            <option value="10">Thunderstorm</option>
+        </select>
+        <br><br>
+
+        <label>Year:</label>
+        <input type="number" min="2012" max="2024" name="year" required />
+        <br><br>
+
+        <label>Month:</label>
+        <input type="number" min="1" max="12" name="month" required />
+        <br><br>
+
+        <label>Day:</label>
+        <input type="number" min="1" max="31" name="day" required />
+        <br><br>
+
+        <label>Hour:</label>
+        <input type="number" min="0" max="24" name="hours" required />
+        <br><br>
+
+        <label>Minutes:</label>
+        <input type="number" min="0" max="60" name="minutes" required />
+        <br><br>
+
+        <label>Seconds:</label>
+        <input type="number" min="0" max="60" name="seconds" required />
+        <br><br>
+
+        <button type="submit">Predict</button>
+    </form>
+
+    <br>
+    <h2>{{ prediction_text }}</h2>
+</body>
+</html>

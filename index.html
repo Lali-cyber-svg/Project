@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic Volume Estimation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-color: lightgray;
+        }
+        .form-container, .result-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+            text-align: left;
+        }
+        .result-container {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            display: none; /* Hidden by default */
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input[type="number"], input[type="text"], select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .background-image {
+            background-image: url("C:\Users\rajia\OneDrive\Desktop\338363.jpg"); /* Add your background image path here */
+            background-size: cover;
+            background-position: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            display: none; /* Hidden by default */
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Image -->
+    <div class="background-image"></div>
+
+    <!-- Input Form -->
+    <div class="form-container" id="formContainer">
+        <h1>Traffic Volume Estimation</h1>
+        <form id="estimationForm">
+            <label for="holiday">Holiday:</label>
+            <select id="holiday" name="holiday">
+                <option value="1">None</option>
+                <option value="2">Christmas Day</option>
+                <option value="3">New Year's Day</option>
+                <!-- Add other holidays as needed -->
+            </select>
+
+            <label for="temperature">Temperature:</label>
+            <input type="number" id="temperature" name="temperature" placeholder="Temperature" required>
+
+            <label for="rain">Rain:</label>
+            <input type="text" id="rain" name="rain" placeholder="Rain" required>
+
+            <label for="snow">Snow:</label>
+            <input type="text" id="snow" name="snow" placeholder="Snow" required>
+
+            <label for="weather">Weather:</label>
+            <input type="text" id="weather" name="weather" placeholder="Weather" required>
+
+            <label for="year">Year:</label>
+            <input type="number" id="year" name="year" min="2012" max="2022" required>
+
+            <label for="month">Month:</label>
+            <input type="number" id="month" name="month" min="1" max="12" required>
+
+            <label for="day">Day:</label>
+            <input type="number" id="day" name="day" min="1" max="31" required>
+
+            <label for="hour">Hour:</label>
+            <input type="number" id="hour" name="hour" min="0" max="24" required>
+
+            <label for="minutes">Minutes:</label>
+            <input type="number" id="minutes" name="minutes" min="0" max="59" required>
+
+            <label for="seconds">Seconds:</label>
+            <input type="number" id="seconds" name="seconds" min="0" max="59" required>
+
+            <button type="submit">Predict</button>
+        </form>
+    </div>
+
+    <!-- Result Display -->
+    <div class="result-container" id="resultContainer">
+        <h1>Vehicle Estimation Site</h1>
+        <div class="result">
+            <p>Estimated Pollution: 4891.41</p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('estimationForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Hide the form and show the result
+            document.getElementById('formContainer').style.display = 'none';
+            document.getElementById('resultContainer').style.display = 'block';
+
+            // Show the background image
+            document.querySelector('.background-image').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
